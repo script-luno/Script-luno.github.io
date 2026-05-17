@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Current Time Test</title>
+</head>
+<body>
+  <h1>現在時刻</h1>
+  <p id="time"></p>
+
+  <script>
+    function updateTime() {
+      const now = new Date();
+      document.getElementById("time").textContent = now.toLocaleString();
+    }
+    updateTime();
+    setInterval(updateTime, 1000);
+  </script>
+</body>
+</html>
