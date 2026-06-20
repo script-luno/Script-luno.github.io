@@ -1,33 +1,139 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <title>script-luno</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>script-luno — 編集中のサイト</title>
+  <meta name="description" content="script-luno のポートフォリオ／プロフィールページ。Scratch の作品やおすすめプロジェクトを紹介しています。">
+  <!-- Open Graph (basic) -->
+  <meta property="og:title" content="script-luno — 編集中のサイト">
+  <meta property="og:description" content="Scratch の作品やおすすめプロジェクトを紹介しています。">
+  <meta property="og:type" content="website">
+  <!-- Fallback favicon (add your own /favicon.ico) -->
+  <link rel="icon" href="/favicon.ico">
+  <style>
+    :root {
+      --bg: #d9f0ff; /* light blue */
+      --max-width: 900px;
+      --accent: #0b76d1;
+      --text: #0b0b0b;
+    }
+    html,body {
+      height: 100%;
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", "Helvetica Neue", Arial;
+      color: var(--text);
+      background-color: var(--bg);
+      -webkit-font-smoothing:antialiased;
+    }
+    .container {
+      max-width: var(--max-width);
+      margin: 1.5rem auto;
+      padding: 1rem;
+      background: rgba(255,255,255,0.7);
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+    header {
+      display:flex;
+      gap:1rem;
+      align-items:center;
+    }
+    header img {
+      width:80px;
+      height:auto;
+      border-radius:8px;
+    }
+    h1 { margin: 0; font-size:1.4rem; }
+    nav { margin-top: 0.5rem; }
+    nav a { color:var(--accent); text-decoration:none; margin-right:0.75rem; }
+    ul { padding-left:1.25rem; }
+    footer { margin-top: 2rem; font-size:0.9rem; color:#333; }
+    .clock { font-weight:600; }
+    /* Responsive tweaks */
+    @media (min-width:640px){
+      header img { width:120px; }
+      h1 { font-size:1.6rem; }
+    }
+    /* Skip link */
+    .skip-link {
+      position:absolute;
+      left:-999px;
+      top:auto;
+      width:1px;
+      height:1px;
+      overflow:hidden;
+    }
+    .skip-link:focus {
+      left:1rem;
+      top:1rem;
+      width:auto;
+      height:auto;
+      padding:0.5rem;
+      background:#000;
+      color:#fff;
+      z-index:100;
+    }
+  </style>
 </head>
-<body style="background-color: lightblue;"> 
-  <img src="logo.png" width="150">
-  <h1>編集中のサイトです。</h1>
-  <h2>完成まで少し待ってね</h2>
-  <p id="time"></p>
-  私のscratchプロフィール
-  <p><ul><li><a href="https://scratch.mit.edu/users/Script_Luno/">本垢script_luno</a></li></ul></p>
-  <p>論理回路シミュレターやブロックを作っています</p><ul><li><a href="https://scratch.mit.edu/users/Script_Luno_geme/">サブ垢script_luno_geme</a></li></ul>
-  <p>現在本垢からゲームを移動中</p>
-  <h3>おすすめ作品</h3>
-  <p>この<a href="https://scratch.mit.edu/projects/1332518813/">偽中国語生成機</a></p>
-  <h3>偽中国語生成機のバージョンアップ履歴</h3>
-  <ul>
-  <li>V1　偽中国語生成機の作成</li>
-  <li><a href="https://scratch.mit.edu/projects/1332518813/">V1.1　偽中国語生成機の変換表を追加</a></li>
-  <li>V2.1　Aiの追加</li>
-  <li>V2.2　Aiの修正</li>
-  <li>V2.3　Aiの修正　2回目</li>
-  <li><a href="https://scratch.mit.edu/projects/1333510755/">2.4　Aiの学習機能できないバグを修正</a></li>
-  </ul>
+<body>
+  <a class="skip-link" href="#main">本文へスキップ</a>
+
+  <div class="container" role="document">
+    <header>
+      <img src="logo.png" alt="script-luno のロゴ">
+      <div>
+        <h1>編集中のサイトです。</h1>
+        <p>完成まで少し待ってね</p>
+        <nav aria-label="主要リンク">
+          <a href="https://scratch.mit.edu/users/Script_Luno/" target="_blank" rel="noopener noreferrer">本垢: Script_Luno</a>
+          <a href="https://scratch.mit.edu/users/Script_Luno_geme/" target="_blank" rel="noopener noreferrer">サブ垢: Script_Luno_geme</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" tabindex="-1">
+      <p>現在本垢からゲームを移動中</p>
+
+      <section aria-labelledby="recommended">
+        <h2 id="recommended">おすすめ作品</h2>
+        <p>この <a href="https://scratch.mit.edu/projects/1332518813/" target="_blank" rel="noopener noreferrer">偽中国語生成機</a></p>
+      </section>
+
+      <section aria-labelledby="changelog">
+        <h2 id="changelog">偽中国語生成機のバージョンアップ履歴</h2>
+        <ul>
+          <li>V1　偽中国語生成機の作成</li>
+          <li><a href="https://scratch.mit.edu/projects/1332518813/" target="_blank" rel="noopener noreferrer">V1.1　変換表を追加</a></li>
+          <li>V2.1　AIの追加</li>
+          <li>V2.2　AIの修正</li>
+          <li>V2.3　AIの修正（2回目）</li>
+          <li><a href="https://scratch.mit.edu/projects/1333510755/" target="_blank" rel="noopener noreferrer">2.4　学習機能のバグ修正</a></li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="clock">
+        <h2 id="clock">現在時刻</h2>
+        <p>ページの時刻: <time id="time" class="clock" datetime=""></time></p>
+      </section>
+
+      <section aria-labelledby="about">
+        <h2 id="about">プロフィール</h2>
+        <p>論理回路シミュレーターやブロックを作っています。</p>
+      </section>
+    </main>
+
+    <footer>
+      <p>© script-luno</p>
+    </footer>
+  </div>
+
   <script>
     function updateTime() {
       const now = new Date();
-      document.getElementById("time").textContent = now.toLocaleString();
+      const el = document.getElementById("time");
+      el.textContent = now.toLocaleString();
+      el.setAttribute('datetime', now.toISOString());
     }
     updateTime();
     setInterval(updateTime, 1000);
